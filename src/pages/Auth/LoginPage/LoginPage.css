@@ -1,0 +1,13 @@
+.login-page {
+    min-height: 100vh;
+    background-color: #f5f3f6;
+}
+
+.main-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    min-height: calc(100vh - 120px);
+}
