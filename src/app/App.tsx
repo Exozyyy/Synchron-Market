@@ -1,8 +1,14 @@
-import type React from "react"
-import LoginPage from "../pages/Auth/LoginPage/Login-page.tsx"
+import {Route, Routes} from "react-router-dom";
 
-const App: React.FC = () => {
-    return <LoginPage/>
+import {appRoutes} from "./providers/router/routerConfig.tsx";
+
+
+export default function App() {
+    return (
+        <Routes>
+            {appRoutes.map((route) => (
+                <Route key={route.path} path={route.path} element={route.element}/>
+            ))}
+        </Routes>
+    );
 }
-
-export default App

@@ -1,5 +1,5 @@
 import Navigation from "../../../widgets/Navigation/Navigation.tsx"
-import LoginForm from "../../../features/AuthForms/LoginForm/LoginForm.tsx"
+import LoginForm from "../../../features/AuthForms/LoginForm/ui/LoginForm.tsx"
 import BackgroundDecoration from "../../../shared/BackgroundDecoration/BackgroundDecoration.tsx"
 import "./LoginPage.css"
 import Header from "../../../widgets/Header/Header.tsx";

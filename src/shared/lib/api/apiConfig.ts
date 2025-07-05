@@ -1,0 +1,1 @@
+export const api: string = "https://a33992-dfcb.w.d-f.pw"

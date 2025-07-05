@@ -1,15 +1,8 @@
-"use client"
-
-import type React from "react"
 import "./Navigation.css"
+import {Link} from "react-router-dom";
 
-type NavigationProps = {}
 
-const Navigation: React.FC<NavigationProps> = () => {
-    const handleLogin = () => {
-        console.log("Login clicked")
-    }
-
+const Navigation = () => {
     return (
         <div className="navigation">
             <div className="navigation-container">
@@ -18,21 +11,21 @@ const Navigation: React.FC<NavigationProps> = () => {
                     <span className="logo-market">Маркет</span>
                 </div>
                 <nav className="nav-menu">
-                    <a href="#" className="nav-link">
+                    <Link to="/#" className="nav-link">
                         О проекте
-                    </a>
-                    <a href="#" className="nav-link">
+                    </Link>
+                    <Link to="/#" className="nav-link">
                         Главная
-                    </a>
-                    <a href="#" className="nav-link">
+                    </Link>
+                    <Link to="/#" className="nav-link">
                         Заявки
-                    </a>
-                    <a href="#" className="nav-link">
+                    </Link>
+                    <Link to="/#" className="nav-link">
                         Техподдержка
-                    </a>
-                    <button className="login-button" onClick={handleLogin}>
+                    </Link>
+                    <Link className="login-button" to='/login'>
                         Войти
-                    </button>
+                    </Link>
                 </nav>
             </div>
         </div>

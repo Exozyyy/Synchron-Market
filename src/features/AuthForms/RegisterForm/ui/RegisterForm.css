@@ -1,0 +1,325 @@
+
+.registration-page .registration-container {
+    min-height: 100vh;
+    background-color: white;
+    padding: 2rem 1rem;
+    position: relative;
+    overflow: hidden;
+
+}
+
+.registration-page .decorative-elements {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.registration-page .decorative-line-1,
+.registration-page .decorative-line-2,
+.registration-page .decorative-line-3 {
+    position: absolute;
+}
+
+.registration-page .decorative-line-1 {
+    top: 5rem;
+    left: 0;
+    width: 8rem;
+    height: 8rem;
+}
+
+.registration-page .decorative-line-2 {
+    top: 50%;
+    right: 0;
+    width: 10rem;
+    height: 10rem;
+}
+
+.registration-page .decorative-line-3 {
+    bottom: 10rem;
+    right: 5rem;
+    width: 12rem;
+    height: 12rem;
+}
+
+.registration-page .decorative-line-1::before,
+.registration-page .decorative-line-2::before,
+.registration-page .decorative-line-3::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #50c878;
+    border-radius: 50px;
+    opacity: 0.6;
+}
+
+.registration-page .decorative-line-1::before {
+    transform: rotate(-30deg);
+}
+
+.registration-page .decorative-line-2::before {
+    transform: rotate(30deg);
+}
+
+.registration-page .decorative-line-3::before {
+    transform: rotate(-45deg);
+}
+
+.registration-page .decorative-dot-1 {
+    position: absolute;
+    bottom: 5rem;
+    left: 2.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: #50c878;
+    border-radius: 50%;
+    opacity: 0.8;
+}
+
+.registration-page .header {
+    text-align: center;
+    margin-bottom: 2rem;
+    background-color: transparent;
+}
+
+.registration-page .header h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.registration-page .header .brand-synchro {
+    color: #2c3950;
+}
+
+.registration-page .header .brand-market {
+    color: #50c878;
+}
+
+.registration-page .form-container {
+    max-width: 64rem;
+    margin: 0 auto;
+    background: white;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(124, 119, 143, 0.2);
+    padding: 2rem;
+    position: relative;
+    z-index: 10;
+}
+
+.registration-page .form-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2c3950;
+    margin-bottom: 1.5rem;
+}
+
+.registration-page .user-type-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.registration-page .tab-button {
+    padding: 0.5rem 1.5rem;
+    border-radius: 9999px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.registration-page .tab-button.active {
+    background-color: #50c878;
+    color: white;
+}
+
+.registration-page .tab-button.active:hover {
+    background-color: rgba(80, 200, 120, 0.9);
+}
+
+.registration-page .tab-button.inactive {
+    background-color: transparent;
+    color: #7c778f;
+    border: 1px solid rgba(124, 119, 143, 0.3);
+}
+
+.registration-page .tab-button.inactive:hover {
+    background-color: rgba(124, 119, 143, 0.05);
+}
+
+.registration-page .form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .registration-page .form-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.registration-page .form-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.registration-page .form-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.registration-page .form-label {
+    color: #7c778f;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.registration-page .form-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid rgba(124, 119, 143, 0.3);
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.registration-page .form-input:focus {
+    outline: none;
+    border-color: #50c878;
+}
+
+.registration-page .form-input.error {
+    border-color: #f44336;
+}
+
+.registration-page .form-select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid rgba(124, 119, 143, 0.3);
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    background-color: white;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.registration-page .form-select:focus {
+    outline: none;
+    border-color: #50c878;
+}
+
+.registration-page .error-message {
+    color: #f44336;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+.registration-page .checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.registration-page .checkbox-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.registration-page .checkbox-input {
+    margin-top: 0.25rem;
+    width: 1rem;
+    height: 1rem;
+    cursor: pointer;
+}
+
+.registration-page .checkbox-label {
+    color: #7c778f;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.registration-page .checkbox-label .link {
+    color: #3b82f6;
+    text-decoration: underline;
+}
+
+.registration-page .form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.5rem;
+}
+
+.registration-page .back-button {
+    background: none;
+    border: none;
+    color: #7c778f;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0;
+}
+
+.registration-page .back-button:hover {
+    text-decoration: underline;
+}
+
+.registration-page .submit-button {
+    background-color: #50c878;
+    color: white;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.registration-page .submit-button:hover {
+    background-color: rgba(80, 200, 120, 0.9);
+}
+
+.registration-page .footer-text {
+    font-size: 0.75rem;
+    color: rgba(124, 119, 143, 0.6);
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.registration-page .footer-text .link {
+    color: #60a5fa;
+    text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+    .registration-page .registration-container {
+        padding: 1rem;
+    }
+
+    .registration-page .form-container {
+        padding: 1.5rem;
+    }
+
+    .registration-page .header h1 {
+        font-size: 1.75rem;
+    }
+
+    .registration-page .form-title {
+        font-size: 1.25rem;
+    }
+
+    .registration-page .form-actions {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+
+    .registration-page .submit-button {
+        width: 100%;
+    }
+}
