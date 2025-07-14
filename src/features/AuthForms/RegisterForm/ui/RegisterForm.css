@@ -184,6 +184,7 @@
     border-radius: 0.375rem;
     font-size: 1rem;
     transition: border-color 0.2s;
+
 }
 
 .registration-page .form-input:focus {
@@ -192,7 +193,10 @@
 }
 
 .registration-page .form-input.error {
-    border-color: #f44336;
+    border-color: #f44336 !important;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border-radius: 0.375rem;
 }
 
 .registration-page .form-select {

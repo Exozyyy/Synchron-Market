@@ -2,7 +2,8 @@ import RegisterForm from "../../../features/AuthForms/RegisterForm/ui/RegisterFo
 
 export default function RegisterPage() {
     return (
-        <RegisterForm/>
-
+        <div>
+            <RegisterForm/>
+        </div>
     );
 }

@@ -1,11 +1,14 @@
 import {createAsyncThunk, createSlice, type PayloadAction} from "@reduxjs/toolkit";
-import {type LoginRequest, type LoginResponse} from "./loginModel.ts";
+import {type JwtPayload, type LoginRequest, type LoginResponse} from "./loginModel.ts";
+import {jwtDecode} from "jwt-decode";
+import {fetchUserProfile} from "../../../../entities/userModel/userSlice.ts";
 
 interface LoginState {
     loginData: LoginResponse | null;
     isAuthenticated: boolean;
     isLoading: boolean;
     error: string | null;
+    userId?: string | null;
 
 }
 
@@ -14,9 +17,11 @@ const initialState: LoginState = {
     isAuthenticated: false,
     isLoading: false,
     error: null,
+    userId: null,
 }
 
-export const loginUser = createAsyncThunk<LoginResponse, LoginRequest>(
+
+export const loginUser = createAsyncThunk<{ data: LoginResponse; userId: string }, LoginRequest>(
     "login/loginUser",
     async (credentials, thunkAPI) => {
         try {
@@ -33,13 +38,20 @@ export const loginUser = createAsyncThunk<LoginResponse, LoginRequest>(
             }
 
             const data: LoginResponse = await response.json();
-            return data;
-        } catch (error) {
-            // @ts-ignore
-            return thunkAPI.rejectWithValue(error.message);
+            const decoded: JwtPayload = jwtDecode(data.accessToken);
+            const userId = decoded.Id;
+            thunkAPI.dispatch(fetchUserProfile(userId));
+            return {data, userId};
+        } catch (error: unknown) {
+            let message = "Произошла ошибка";
+            if (error instanceof Error) {
+                message = error.message;
+            }
+            return thunkAPI.rejectWithValue(message);
         }
     }
 )
+
 
 export const loginSlice = createSlice({
     name: 'login',
@@ -54,6 +66,7 @@ export const loginSlice = createSlice({
             state.loginData = null
             state.isAuthenticated = false
             state.error = null
+            state.userId = null
         },
         clearError: (state) => {
             state.error = null
@@ -67,8 +80,9 @@ export const loginSlice = createSlice({
             })
             .addCase(loginUser.fulfilled, (state, action) => {
                 state.isLoading = false
-                state.loginData = action.payload
+                state.loginData = action.payload.data
                 state.isAuthenticated = true
+                state.userId = action.payload.userId
                 state.error = null
             })
             .addCase(loginUser.rejected, (state, action) => {
@@ -76,6 +90,7 @@ export const loginSlice = createSlice({
                 state.error = action.payload as string
                 state.isAuthenticated = false
                 state.loginData = null
+                state.userId = null
             })
 
     },

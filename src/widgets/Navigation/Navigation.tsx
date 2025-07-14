@@ -1,8 +1,17 @@
 import "./Navigation.css"
 import {Link} from "react-router-dom";
+import type {RootState} from "@reduxjs/toolkit/query";
+import {useDispatch, useSelector} from "react-redux";
+import type {AppDispatch} from "../../app/providers/store/store.ts";
 
 
 const Navigation = () => {
+    const dispatch = useDispatch<AppDispatch>();
+    const isAuthenticated = useSelector(
+        (state: RootState) => state.login.isAuthenticated
+    );
+
+
     return (
         <div className="navigation">
             <div className="navigation-container">

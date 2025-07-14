@@ -1,5 +1,5 @@
 import "./LoginForm.css";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux';
 import type {AppDispatch, RootState} from "../../../../app/providers/store/store.ts";
 import {clearError, loginUser} from "../model/loginSlice.ts";
@@ -7,7 +7,7 @@ import {useState} from "react";
 
 export default function LoginForm() {
     const dispatch = useDispatch<AppDispatch>();
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const {isLoading, error} = useSelector(
         (state: RootState) => state.login
@@ -16,6 +16,9 @@ export default function LoginForm() {
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
     const [submitted, setSubmitted] = useState(false);
+    const isAuthenticated = useSelector(
+        (state: RootState) => state.login.isAuthenticated
+    );
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const {name, value} = e.target;
@@ -33,7 +36,7 @@ export default function LoginForm() {
             alert('вошли')
         }
     };
-
+    //
     // useEffect(() => {
     //     if (isAuthenticated) {
     //         navigate("/profile");
